@@ -1,0 +1,372 @@
+:root {
+  --bg: oklch(0.145 0.008 75);
+  --bg-deep: oklch(0.12 0.007 75);
+  --text: oklch(0.96 0.01 95);
+  --text-muted: oklch(0.78 0.014 90);
+  --text-faint: oklch(0.72 0.016 85);
+  --line: oklch(0.96 0.01 95 / 0.14);
+  --accent: oklch(0.8 0.04 80);
+  --measure: 40rem;
+  --header: 4.5rem;
+  --sans: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "IBM Plex Serif", "Iowan Old Style", Palatino, Georgia, serif;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-block-start: calc(var(--header) + 1.25rem);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.skip {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: 0.75rem;
+  transform: translateY(-200%);
+  z-index: 5;
+  padding: 0.55rem 0.8rem;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: var(--header);
+  background: var(--bg);
+  border-block-end: 1px solid var(--line);
+}
+
+.frame {
+  width: min(76rem, calc(100% - 2 * clamp(1.25rem, 5vw, 6.5rem)));
+  margin-inline: auto;
+}
+
+.header-bar,
+.footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  min-height: var(--header);
+}
+
+.mark {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+a.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 2.75rem;
+}
+
+a.mark::before {
+  content: "";
+  width: 1.35rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.25rem 1.75rem;
+}
+
+.nav a {
+  padding-block: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: oklch(0.88 0.025 95);
+  color: oklch(0.16 0.008 75);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  min-height: calc(100dvh - var(--header));
+  padding-block-end: clamp(4.5rem, 12vh, 8.5rem);
+}
+
+h1,
+.finale h2 {
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+h1 {
+  max-width: 11em;
+  font-size: clamp(3.1rem, 7.4vw, 7.4rem);
+  line-height: 0.94;
+}
+
+.lede {
+  max-width: 40rem;
+  margin-block-start: clamp(2.25rem, 5vh, 3.75rem);
+  color: var(--text-muted);
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.chapter {
+  padding-block: clamp(6rem, 16vh, 10.5rem);
+}
+
+#mission,
+#hypothesis,
+#work {
+  scroll-margin-top: calc(var(--header) + 1.25rem);
+}
+
+.kicker,
+.index {
+  color: var(--text-faint);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.prose {
+  max-width: var(--measure);
+  margin-block-start: 1.75rem;
+}
+
+.prose > :first-child {
+  margin-block-start: 0;
+}
+
+.prose p {
+  text-wrap: pretty;
+}
+
+.prose p + p {
+  margin-block-start: 1.5rem;
+}
+
+h2 {
+  max-width: 18em;
+  margin-block-start: 1.75rem;
+  font-family: var(--sans);
+  font-size: clamp(1.85rem, 3vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.deck {
+  max-width: 32rem;
+  margin-block-start: 1.35rem;
+  color: var(--text-muted);
+  font-size: 1.35rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.domains {
+  margin-block-start: clamp(3.5rem, 8vh, 5.5rem);
+}
+
+.domain {
+  max-width: 46rem;
+  padding-block: 2.4rem 2.55rem;
+  border-block-start: 1px solid var(--line);
+}
+
+.domain:last-child {
+  border-block-end: 1px solid var(--line);
+}
+
+.index {
+  font-variant-numeric: tabular-nums;
+}
+
+h3 {
+  margin-block-start: 0.85rem;
+  font-family: var(--sans);
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.domain p {
+  max-width: var(--measure);
+  margin-block-start: 0.85rem;
+  text-wrap: pretty;
+}
+
+.effect {
+  margin-block-start: clamp(4rem, 10vh, 7rem);
+}
+
+.effect .prose {
+  margin-block-start: 0;
+}
+
+.lead {
+  font-family: var(--sans);
+  font-size: clamp(1.85rem, 3vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.effect .prose p + p {
+  margin-block-start: 1.5rem;
+}
+
+.finale {
+  display: flex;
+  align-items: flex-end;
+  min-height: 100dvh;
+  padding-block-end: clamp(5rem, 14vh, 9rem);
+  background:
+    linear-gradient(to bottom, var(--bg), var(--bg-deep) 28%);
+}
+
+.finale h2 {
+  max-width: 14ch;
+  margin-block-start: 0;
+  font-size: clamp(2.5rem, 5.5vw, 5.15rem);
+  line-height: 1.02;
+}
+
+.site-footer {
+  background: var(--bg-deep);
+  border-block-start: 1px solid var(--line);
+}
+
+.footer-bar {
+  align-items: baseline;
+  padding-block: 1.75rem 2.25rem;
+}
+
+.site-footer p:last-child {
+  max-width: 36rem;
+  color: var(--text-faint);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: end;
+  text-wrap: pretty;
+}
+
+@media (max-width: 42rem) {
+  :root {
+    --header: 7rem;
+  }
+
+  .header-bar,
+  .footer-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    padding-block: 0.9rem 0.75rem;
+  }
+
+  .site-header {
+    height: auto;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    gap: 0.1rem 1.2rem;
+  }
+
+  .nav a {
+    padding-block: 0.45rem;
+  }
+
+  .site-footer p:last-child {
+    text-align: start;
+  }
+
+  h1 {
+    font-size: clamp(2.65rem, 12.5vw, 3.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
