@@ -78,6 +78,9 @@ body {
 }
 
 .mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
   margin: 0;
   color: var(--text);
   font-family: var(--sans);
@@ -89,18 +92,14 @@ body {
   text-decoration: none;
 }
 
-a.mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  min-height: 2.75rem;
+.mark img {
+  width: 1.7rem;
+  height: auto;
+  display: block;
 }
 
-a.mark::before {
-  content: "";
-  width: 1.35rem;
-  height: 1px;
-  background: var(--accent);
+a.mark {
+  min-height: 2.75rem;
 }
 
 .nav {
